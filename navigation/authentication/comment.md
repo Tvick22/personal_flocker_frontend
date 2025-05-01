@@ -84,7 +84,7 @@ menu: nav/home.html
         commentBox.appendChild(commentContent);
 
         const commentUID = document.createElement("p");
-        commentUID.innerHTML = `UID: ${comment.uid}`;
+        commentUID.innerHTML = `Username: ${comment.user.name}`;
         commentBox.appendChild(commentUID);
 
         const deleteButton = document.createElement("button");
@@ -141,7 +141,7 @@ menu: nav/home.html
     async function submitComment() {
         const commentContent = newComment.value.trim();
         if (commentContent) {
-            const result = await postComment({ content: commentContent });
+            const result = await postComment({ content: commentContent, post_id: 1 });
             if (result.success) {
                 alert("Comment submitted successfully!");
                 newComment.value = "";
@@ -162,4 +162,3 @@ menu: nav/home.html
 </script>
 
 </body>
-
